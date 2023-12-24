@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type="text/javascript" src="/build/js/jquery.min.js"></script>
+      <script src="/Scripts/Global.js"></script>
+      <meta charset="utf-8" />
+      <meta http-equiv="x-ua-compatible" content="ie=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+      <meta name="author" content="Renzi Fidele" />
+      <meta
+         name="description"
+         content="A AMC Construções está  no mercado há mais de quatro décadas e é uma empresa de credibilidade e reconhecida como referência de qualidade em obras. "
+      />
+      <meta
+         property="og:description"
+         content="A AMC Construções está  no mercado há mais de quatro décadas e é uma empresa de credibilidade e reconhecida como referência de qualidade em obras. "
+      />
+      <meta name="theme-color" content="#ffffff" />
+      <title>AMC Construções</title>
+      <meta property="og:title" content="AMC Construções" />
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:url" content="" />
+      <meta property="og:site_name" content="" />
+      <meta property="og:type" content="website" />
+      <!--[if lte IE 9]>
+         <link rel="stylesheet" href="css/ie.css" />
+         <script src="js/modernizr-custom.js"></script>
+      <![endif]-->
+      <link rel="canonical" href="#" />
+      <link href="/build/css/empreendimento.min.css" rel="stylesheet" />
+
+      <script>
+         var absolutePath = "index.html";
+      </script>
+
+      <style>
+         .header .FiltroTopo ul li.LiFiltroAvancado {
+            padding: 2px 0 0 13px;
+         }
+
+         .linha.icones img {
+            padding: 8px;
+         }
+
+         .header .FiltroTopo ul li {
+            padding-top: 10px;
+            padding-bottom: 10px;
+         }
+
+         .ImgCMV {
+            width: 55px !important;
+            float: left;
+            margin-right: 5px;
+            padding: 0 !important;
+         }
+
+         .mcmv-label {
+            font-weight: bold;
+            font-family: Gotham-Medium;
+            margin-top: 2px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.7em;
+         }
+
+         .header .FiltroTopo ul {
+            padding: 7px 0;
+         }
+
+         .header_mobile .menu-slide .imovel li.LiFiltroAvancadoMobile a {
+            padding: 15px 0 30px 20px;
+         }
+
+         .header .FiltroTopo ul li a {
+            padding: 0 83px 0 0;
+         }
+
+         .header .FiltroTopo ul li a {
+            font-size: 1em;
+            padding: 0 105px 0 0;
+         }
+
+         @media (max-width: 1460px) {
+            .header .FiltroTopo ul li a {
+               padding: 0 83px 0 0;
+               font-size: 0.875em;
+            }
+
+            .mcmv-label {
+               font-size: 0.65em;
+               margin-top: 7px;
+            }
+         }
+
+         /*Style do filtro MCMV no empreendimento */
+         .mcmv-hover {
+            position: relative;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+         }
+
+         .mcmv-hover:hover .ImgImovel {
+            filter: brightness(50%);
+            transition: 1s;
+         }
+
+         .mcmv-hover:hover .icon-mcmv-hover {
+            z-index: 10;
+            transition: 1s;
+         }
+
+         .icon-mcmv-hover {
+            width: 150px;
+            position: absolute;
+            z-index: -1;
+         }
+
+         .ThumbImovel .item .content .linha {
+            margin-top: 20px;
+         }
+
+         .ThumbImovel .item .content .ImgImovel {
+            margin-bottom: 0;
+         }
+
+         .ThumbImovel {
+            padding-bottom: 30px;
+         }
+
+         .ThumbImovel .item {
+            margin-bottom: 40px;
+         }
+
+         /*----------Style popup da saida da pagina----------*/
+         #news-signup {
+            position: fixed;
+            width: 100%;
+            visibility: hidden;
+            z-index: 999;
+            opacity: 0;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+            transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            top: 0;
+         }
+
+         #news-signup .wrapper {
+            background-color: #12424d;
+            position: relative;
+            width: 800px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+         }
+
+         #news-signup_close {
+            position: absolute;
+            left: 100%;
+            margin: 7px 0 0 -30px;
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            cursor: pointer;
+         }
+
+         #news-signup_close::before {
+            content: "×";
+            font: 400 26px/1em serif;
+            font-weight: bolder;
+         }
+
+         #news-signup_close:hover {
+            opacity: 0.8;
+         }
+
+         #news-signup .newsletter-content {
+            height: 300px;
+            margin: 0 auto;
+            color: #fff;
+         }
+
+         /*Title do popup*/
+         #news-signup .newsletter-content h2 {
+            background-color: #f58220;
+            text-align: center;
+            margin: 0 auto 15px;
+            padding-top: 10px;
+            height: 50px;
+            border-radius: 8px 8px 0 0;
+         }
+
+         /*Body do popup*/
+         #news-signup .newsletter-content p {
+            margin: 0 auto 25px;
+         }
+
+         /*Footer do popup*/
+         #news-signup .newsletter-content p.footnote {
+            margin-top: 200px;
+            margin-bottom: 0;
+         }
+
+         #news-signup .newsletter-content form {
+            margin: 0;
+            padding: 0;
+            width: 90%;
+         }
+         /*------------------------------------*/
+
+         /*Ajuste de dimenção para menu institucional com o blog*/
+         .menuHome {
+            /*width: calc(588px - 205px);*/
+         }
+
+         @media (min-width: 1460px) {
+            .menuHome {
+               width: 70%;
+            }
+         }
+
+         .g-recaptcha {
+            transform: scale(0.77);
+            transform-origin: 0 0;
+         }
+
+         .formulario .campo.erro input[type="checkbox"] {
+            border: 2px solid red !important;
+         }
+
+         .banner {
+            height: 260px !important;
+            background-size: contain;
+            background-position: left top;
+         }
+
+         @media (max-width: 768px) {
+            .banner {
+               height: 100px !important;
+               background-size: contain;
+               background-position: left top;
+            }
+         }
+      </style>
+      <link href="/build/css/chat-online.min.css" rel="stylesheet" />
+   </head>
+   <body>
+      <!--Cabecalho-->
+      <header class="header">
+         <div class="cookie-banner" style="display: none">
+            <p>
+               Utilizamos cookies para melhorar o desempenho e a sua experiência como usuário do nosso site. <br />
+               Ao utilizar este site, você concorda com a nossa <a href="/institucional/politica-de-cookies.html">Política de Cookies</a>.
+            </p>
+            <button id="close" class="btn">OK ENTENDI!</button>
+         </div>
+         <style>
+            .cookie-banner {
+               position: fixed;
+               bottom: 40px;
+               left: 10%;
+               right: 10%;
+               flex-direction: column;
+               width: 80%;
+               padding: 20px 14px;
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               background-color: #eee;
+               z-index: 99;
+               border-radius: 5px;
+               box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+            }
+
+            .cookie-banner a {
+               text-decoration: underline;
+            }
+
+            .cookie-banner p {
+               display: block;
+               font-size: 1rem;
+               line-height: 1.6rem;
+               color: #363636;
+               text-align: center;
+            }
+
+            .cookie-banner .btn:hover {
+               background: white;
+               color: #12424d;
+               cursor: pointer;
+            }
+
+            .cookie-banner .btn {
+               margin: 0 auto;
+               width: 14%;
+               margin-top: 16px;
+               display: block;
+               background: #12424d;
+               transition: 0.2s;
+               padding: 18px 0;
+               font-size: 1em;
+               color: #fff;
+               text-align: center;
+               text-transform: uppercase;
+               box-sizing: border-box;
+               border: 1px solid #12424d;
+            }
+         </style>
+         <div class="grid-container">
+            <div class="grid-100 grid-parent dt">
+               <div class="vertical">
+                  <div class="grid-20 tablet-grid-20" style="padding: 0">
+                     <a href="/index.html" title="AMC Construções">
+                        <h1 style="padding: 0; width: auto">
+                           <span>AMC Construções</span>
+                           <img src="/build/imagens/novas/AMC-LOGO-223w.png" alt="AMC Construções" />
+                        </h1>
+                     </a>
+                  </div>
+                  <div class="menuHome grid-80 tablet-grid-80 grid-parent">
+                     <ul class="Menu right">
+                        <li>
+                           <a class="open-institucional" href="#" title="Institucional">Institucional <i class="icon-angle-down"></i></a>
+                           <ul class="sub">
+                              <li>
+                                 <a href="/institucional/amc.html" title="Quem somos">Quem somos</a>
+                              </li>
+                              <li>
+                                 <a href="/instucional/infraestrutura.html" title="Infraestrutura">Infraestrutura</a>
+                              </li>
+                              <li>
+                                 <a href="/institucional/parceria.html" title="Parceria">Parceria</a>
+                              </li>
+                              <li>
+                                 <a href="/ligamos-para-voce.html" title="Ligamos pra você">Ligamos para você</a>
+                              </li>
+                              <li>
+                                 <a href="/institucional/politica-de-privacidade.html" title="Política de Privacidade"
+                                    >Política de Privacidade</a
+                                 >
+                              </li>
+                              <li>
+                                 <a href="/institucional/politica-de-cookies.html" title="Política de cookies">Política de cookies</a>
+                              </li>
+                           </ul>
+                        </li>
+
+                        <li>
+                           <a href="/empreendimentos.html" title="Empreendimentos">Empreendimentos</a>
+                        </li>
+
+                        <li>
+                           <a href="/instucional/clientes.html" title="Clientes">Clientes</a>
+                        </li>
+
+                        <li>
+                           <a href="https://construtoradesucesso.com.br/blog/" title="Blog">Blog</a>
+                        </li>
+                        <li>
+                           <a href="/faleconosco.html" title="Fale Conosco">Fale Conosco</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--Tipos de empreendimentos-->
+         <div class="FiltroTopo cf">
+            <div class="grid-container">
+               <div class="grid-100 tablet-grid-100 center">
+                  <ul>
+                     <li><a href="/empreendimentos.html" title="Todos">Todos</a></li>
+                     <li><a href="/empreendimentos/pre-lancamentos.html" title="Pré-lançamentos">Pré-lançamentos</a></li>
+                     <li><a href="/empreendimentos/lancamentos.html" title="Lançamentos">lan&#231;amentos</a></li>
+                     <li><a href="/empreendimentos/prontos-para-morar.html" title="Prontos para morar">Prontos para morar</a></li>
+                     <li><a href="/empreendimentos/loteamentos.html" title="Loteamentos">LOTEAMENTOS</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <!--Cabecalho Mobile-->
+      <header class="header_mobile">
+         <div class="mobile-grid-60 grid-parent">
+            <a href="/index.html" title="AMC Construções"><img src="/build/imagens/novas/AMC-LOGO-223w.png" alt="AMC Construções" /></a>
+         </div>
+         <div class="mobile-grid-40 grid-parent">
+            <i class="icon-menu"></i>
+         </div>
+         <div class="mobile-grid-100 grid-parent menu-slide">
+            <ul class="Menu">
+               <li>
+                  <a class="open-institucional" href="#" title="Institucional">Institucional <i class="icon-angle-down"></i></a>
+                  <ul class="sub">
+                     <li>
+                        <a href="/institucional/amc.html" title="AMC Construções"><i class="icon-angle-double-right"></i>Quem Somos</a>
+                     </li>
+                     <li>
+                        <a href="/instucional/missao-visao-valores.html" title="Missão e Valores"
+                           ><i class="icon-angle-double-right"></i>Missão, Visão e Valores</a
+                        >
+                     </li>
+                     <li>
+                        <a href="/institucional/clientes.html" title="Clientes"><i class="icon-angle-double-right"></i>Clientes</a>
+                     </li>
+                     <li>
+                        <a href="/instucional/infraestrutura.html" title="Infraestrutura"
+                           ><i class="icon-angle-double-right"></i>Infraestrutura</a
+                        >
+                     </li>
+                     <li>
+                        <a href="/institucional/parceria.html" title="Parceria"><i class="icon-angle-double-right"></i>Parceria</a>
+                     </li>
+                     <li>
+                        <a href="/institucional/contato.html" title="Contato"><i class="icon-angle-double-right"></i>Contato</a>
+                     </li>
+                     <li>
+                        <a href="/trabalhe-conosco.html" title="Trabalhe Conosco"><i class="icon-angle-double-right"></i>Trabalhe Conosco</a>
+                     </li>
+                     <li>
+                        <a href="/institucional/politica-de-privacidade.html" title="Política de Privacidade"
+                           ><i class="icon-angle-double-right"></i>Política de Privacidade</a
+                        >
+                     </li>
+                     <li>
+                        <a href="/institucional/politica-de-cookies.html" title="Política de Cookies"
+                           ><i class="icon-angle-double-right"></i>Política de Cookies</a
+                        >
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://construtoradesucesso.com.br/blog/" title="Blog">Blog</a>
+               </li>
+               <li>
+                  <a href="/faleconosco.html" title="Fale Conosco">Fale Conosco</a>
+               </li>
+            </ul>
+            <ul class="imovel">
+               <h2>IMÓVEIS</h2>
+               <li>
+                  <a href="/empreendimentos.html" title="Todos">Todos</a>
+               </li>
+               <li><a href="/empreendimentos/pre-lancamentos.html" title="Pré-lançamentos">Pré-lançamentos</a></li>
+               <li><a href="/empreendimentos/lancamentos.html" title="Lançamentos">lan&#231;amentos</a></li>
+               <li><a href="/empreendimentos/prontos-para-morar.html" title="Prontos para morar">Prontos para morar</a></li>
+               <li><a href="/empreendimentos/prontos-para-morar.html" title="Alojamentos">LOTEAMENTOS</a></li>
+            </ul>
+         </div>
+      </header>
+
+      <main class="main">
+         <section class="pg pg-empreendimentos">
+            <div class="breadcrumbs">
+               <div class="grid-container">
+                  <ul>
+                     <li>
+                        <a href="/index.html" title="Home"><i class="icon-angle-double-right"></i> Home</a>
+                     </li>
+                     <li class="">
+                        <!-- A ultima li deve ter a classe bold -->
+                        <a href="../empreendimentos.html" title="Empreendimentos"><i class="icon-angle-double-right"></i> Empreendimentos</a>
+                     </li>
+                     <li class="bold">
+                        <!-- A ultima li deve ter a classe bold -->
+                        <a href="pre-lancamentos.html" title="Empreendimentos - Loteamentos"
+                           ><i class="icon-angle-double-right"></i> Empreendimentos - Loteamentos</a
+                        >
+                     </li>
+                  </ul>
+               </div>
+            </div>
+
+            <section class="empreendimentos">
+               <div class="grid-container">
+                  <div class="cabecalho">
+                     <div class="titulo">
+                        <h1>
+                           <hr />
+                           Loteamentos
+                        </h1>
+                     </div>
+                     <div class="txt">
+                        <p>Em breve mais informações.</p>
+                     </div>
+                  </div>
+                  <section class="ListaEmpreendimento">
+                     <div class="ThumbImovel cf" id="infiniteContent"></div>
+                  </section>
+               </div>
+            </section>
+         </section>
+         <!-- libs -->
+         <script type="text/javascript" src="../build/js/generico-lib.min.js"></script>
+         <link href="../build/css/generico-lib.min.css" rel="stylesheet" />
+      </main>
+
+      <footer class="footer">
+         <div class="UrlsFooter cf">
+            <div class="grid-container">
+               <div class="grid-25 tablet-grid-25 tablet-suffix-5">
+                  <figure class="LogoFooter">
+                     <a href="/index.html" title="AMC Construções">
+                        <img src="/build/imagens/novas/AMC-LOGO-223w.png" alt="AMC Construções, construtora, lançamentos em Londrina, PR" />
+                     </a>
+                  </figure>
+
+                  <div class="link">
+                     <a href="/institucional/amc.html" target="_blank"><i class="icon-angle-double-right"></i>Quem somos</a>
+                  </div>
+                  <div class="link">
+                     <a href="/instucional/missao-visao-valores.html" target="_blank"><i class="icon-angle-double-right"></i>Missão e valores</a>
+                  </div>
+               </div>
+               <div class="grid-75 tablet-grid-70">
+                  <div class="menu-footer">
+                     <div class="no-mobile cf">
+                        <div class="grid-80 prefix-20 grid-parent">
+                           <div class="grid-50 tablet-grid-33">
+                              <ul>
+                                 <li>
+                                    <a title="Institucional" href="/institucional/amc.html">Institucional</a>
+                                 </li>
+
+                                 <li class="light">
+                                    <a href="/instucional/infraestrutura.html" title="Infraestrutura"
+                                       ><i class="icon-angle-double-right"></i>Infraestrutura</a
+                                    >
+                                 </li>
+                                 <li class="light">
+                                    <a href="/instucional/clientes.html" title="Clientes"><i class="icon-angle-double-right"></i>Clientes</a>
+                                 </li>
+                                 <li class="light">
+                                    <a href="/institucional/contato.html" title="Contato"><i class="icon-angle-double-right"></i>Contato</a>
+                                 </li>
+                                 <li class="light">
+                                    <a href="/institucional/politica-de-privacidade.html" title="Política de Privacidade"
+                                       ><i class="icon-angle-double-right"></i>Política de Privacidade</a
+                                    >
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="grid-50 tablet-grid-33">
+                              <ul>
+                                 <li>
+                                    <a href="/empreendimentos.html" title="Empreendimentos">Empreendimentos</a>
+                                 </li>
+                                 <li>
+                                    <a href="/depoimentos.html" title="Depoimentos">Depoimentos</a>
+                                 </li>
+                                 <li>
+                                    <a href="/instucional/missao-visao-valores.html" title="Missão e valores">Missão e valores</a>
+                                 </li>
+                                 <li>
+                                    <a href="/faleconosco.html" title="Fale conosco">Fale conosco</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="no-desktop cf">
+                        <div class="mobile-grid-50">
+                           <ul>
+                              <li>
+                                 <a class="open-institucional" title="Institucional">Institucional <i class="icon-angle-down"></i></a>
+                                 <ul class="sub-links sub">
+                                    <li class="light">
+                                       <a href="/institucional/amc.html" title="AMC"><i class="icon-angle-double-right"></i>Quem Somos</a>
+                                    </li>
+                                    <li class="light">
+                                       <a href="instucional/missao-visao-valores.html" title="Missão, Visão e Valores"
+                                          ><i class="icon-angle-double-right"></i>Missão,Visão e Valores</a
+                                       >
+                                    </li>
+                                    <li class="light">
+                                       <a href="/instucional/infraestrutura.html" title="Infraestrutura"
+                                          ><i class="icon-angle-double-right"></i>Infraestrutura</a
+                                       >
+                                    </li>
+                                    <li class="light">
+                                       <a href="/institucional/parceria.html" title="Parceria"
+                                          ><i class="icon-angle-double-right"></i>Parceria</a
+                                       >
+                                    </li>
+                                    <li class="light">
+                                       <a href="institucional/contato.html" title="Contato"><i class="icon-angle-double-right"></i>Contato</a>
+                                    </li>
+                                    <li class="light">
+                                       <a href="/institucional/politica-de-privacidade.html" title="Política de Privacidade"
+                                          ><i class="icon-angle-double-right"></i>Política de Privacidade</a
+                                       >
+                                    </li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <a href="/depoimentos.html" title="Depoimentos">Depoimentos</a>
+                              </li>
+                              <li>
+                                 <a href="/empreendimentos.html" title="Empreendimentos">Empreendimentos</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="mobile-grid-50">
+                           <ul>
+                              <li>
+                                 <a href="/trabalhe-conosco.html" title="Trabalhe Conosco">Trabalhe Conosco</a>
+                              </li>
+                              <li>
+                                 <a href="/faleconosco.html" title="Fale conosco">Fale conosco</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!--Caixa Azul-->
+               <div class="ItemLaranja cf">
+                  <div class="grid-33 tablet-grid-33 mobile-grid-33 grid-parent relative">
+                     <div class="ligamos open-email">
+                        <a href="https://construtoradesucesso.com.br/blog/" title="E-mail" data-seo="email-footer" target="_blank">
+                           <div class="icone">
+                              <i class="icon-evento-1"></i>
+                           </div>
+                           <div class="content">
+                              <h3>BLOG</h3>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+
+                  <div class="grid-33 tablet-grid-33 mobile-grid-33 grid-parent relative">
+                     <div class="chat">
+                        <a href="https://api.whatsapp.com/send?phone=5547991520164" title="Whatsapp" target="_blank" data-seo="whatsapp-footer">
+                           <div class="icone">
+                              <i class="icon-whatsapp"></i>
+                           </div>
+                           <div class="content">
+                              <h3>WHATSAPP</h3>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+
+                  <div class="grid-33 tablet-grid-33 mobile-grid-33 grid-parent relative">
+                     <div class="ligamos">
+                        <a href="ligamos-para-voce.html" title="Ligamos para você" data-seo="ligamos-para-voce-footer">
+                           <div class="icone">
+                              <i class="icon-phone-squared"></i>
+                           </div>
+                           <div class="content">
+                              <h3>
+                                 <span>LIGAMOS</span>
+                                 PARA VOCÊ
+                              </h3>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="RedeSociais cf">
+            <div class="grid-container">
+               <div class="center grid-100">
+                  <span>Redes Sociais:</span>
+                  <ul>
+                     <li>
+                        <a
+                           href="https://www.facebook.com/people/AMC-Constru%C3%A7%C3%B5es/100063671165105/"
+                           title="Facebook"
+                           target="_blank"
+                           rel="nofollow"
+                        >
+                           <i class="icon-facebook-circled"></i>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="https://www.instagram.com/construcoesamc/" title="Instagram" target="_blank" rel="nofollow">
+                           <i class="icon-instagram"></i>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="https://www.youtube.com/@amcconstrucoes409" title="youtube" target="_blank" rel="nofollow">
+                           <i class="icon-youtube"></i>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="Enderecos cf">
+            <div class="grid-container">
+               <div class="grid-parent grid-100">
+                  <ul>
+                     <li>
+                        <div class="end">
+                           <h5>Central de Vendas</h5>
+
+                           <a href="tel:48991253213" title="Ligar para Central" target="_blank" data-seo="tel-central"> 48 99125-3213 </a>
+                        </div>
+
+                        <br />
+                        <div class="end">
+                           <h5>
+                              Assistência Técnica e <br />
+                              Administração
+                           </h5>
+
+                           <a
+                              href="tel:48991253213"
+                              title="Ligar para Assistência Técnica e Administração"
+                              target="_blank"
+                              data-seo="tel-administracao"
+                           >
+                              48 99125-3213
+                           </a>
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="end">
+                           <h5>Matriz</h5>
+
+                           <div class="txt">
+                              <p>
+                                 Av. Tiradentes, 501<br />
+                                 Torre 1 (14º Andar - Sala 1401)<br />
+                                 - Jardim Shangri-Lá, Londrina/PR<br />
+                                 86070-545<br />
+                                 (43) 3376-3201
+                              </p>
+                           </div>
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="end">
+                           <h5>Filial</h5>
+                           <div class="txt">
+                              <p>
+                                 R. Monza, 226<br />
+                                 Sala 704 <br />
+                                 Passa Vinte, Palhoça/SC <br />
+                                 CEP 88132-147
+                              </p>
+                           </div>
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="end">
+                           <h5>Cornélio Procópio/PR</h5>
+
+                           <div class="txt">
+                              <p>
+                                 Av. Ismael Reghin <br />
+                                 Quadra 16 - Lote 41 <br />
+                                 Residencial Ivany Paiva Gatti <br />
+                                 CEP 86300-000 <br />
+                              </p>
+                           </div>
+                        </div>
+                     </li>
+
+                     <li>
+                        <div class="end">
+                           <h5>Guaramirim/SC</h5>
+
+                           <div class="txt">
+                              <p>
+                                 R. Herminio Stringari, 1287 <br />
+                                 Corticeira, Guaramirim/SC <br />
+
+                                 CEP 88270-000 <br />
+                              </p>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <script src="../Scripts/Empreendimento/Index.js"></script>
+
+      <script src="../build/js/scripts.min.js"></script>
+      <script src="../build/js/melhorias-crm.js"></script>
+
+      <script>
+         function dot() {
+            $(".dot").dotdotdot({
+               ellipsis: "... ",
+               wrap: "word",
+               fallbackToLetter: !0,
+               lastCharacter: {
+                  remove: [" ", ",", ";", ".", "!", "?"],
+                  noEllipsis: [],
+               },
+            });
+         }
+      </script>
+
+      <!-- PHOTOSWIPE -->
+      <div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="pswp__bg"></div>
+         <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+               <div class="pswp__item"></div>
+               <div class="pswp__item"></div>
+               <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+               <div class="pswp__top-bar">
+                  <div class="pswp__counter"></div>
+
+                  <button class="pswp__button pswp__button--close" title="Fechar (Esc)"></button>
+                  <button class="pswp__button pswp__button--fs" title="Habilitar/desabilitar tela cheia"></button>
+                  <button class="pswp__button pswp__button--zoom" title="Zoom mais/menos"></button>
+
+                  <div class="pswp__preloader">
+                     <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                           <div class="pswp__preloader__donut"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="pswp__loading-indicator">
+                  <div class="pswp__loading-indicator__line"></div>
+               </div>
+
+               <button class="pswp__button pswp__button--arrow--left" title="Anterior (seta da esquerda)"></button>
+               <button class="pswp__button pswp__button--arrow--right" title="Próximo (seta da direita)"></button>
+
+               <div class="pswp__caption">
+                  <div class="pswp__caption__center"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Pop-Up para a saida da página-->
+      <div id="news-signup">
+         <div class="wrapper">
+            <div id="news-signup_close"></div>
+            <div class="newsletter-content" id="phplistsubscriberesult">
+               <h2>Não encontrou o que estava procurando?</h2>
+
+               <p>Entre em contato com nossa equipe. Vamos te ajudar a realizar seu sonho.</p>
+
+               <div class="footnote"></div>
+            </div>
+         </div>
+      </div>
+
+      <div class="fabs">
+         <a id="prime" class="fab" href="https://api.whatsapp.com/send?phone=5547991520164" title="Conversar"
+            ><i id="btnChatOnline" class="prime icon icon-whatsapp"></i
+         ></a>
+      </div>
+   </body>
+</html>
