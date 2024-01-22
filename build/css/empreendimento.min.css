@@ -3559,6 +3559,7 @@ body {
    width: 100%;
    height: 198px;
    margin-bottom: 20px;
+   background-repeat: no-repeat;
 }
 .ThumbImovel .item .content .linha {
    padding: 0 26px 0 0;
