@@ -2247,8 +2247,8 @@ img {
    }
 }
 .header .AcessoCliente .ChatTopo {
-   background: #f58220;
-   padding: 30px 11px;
+   background: #04959c;
+   padding: 25px 11px;
    color: #fff;
    cursor: pointer;
 }
@@ -2296,7 +2296,7 @@ img {
 }
 .header .FiltroTopo ul {
    display: block;
-   padding: 20px 0;
+   padding: 7px 0;
 }
 @media (max-width: 1460px) {
    .header .AcessoCliente .ChatTopo .content h3 {
