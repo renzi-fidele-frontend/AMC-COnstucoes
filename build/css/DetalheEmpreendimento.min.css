@@ -2263,7 +2263,7 @@ img {
    }
 }
 .header .AcessoCliente .ChatTopo {
-   background: #04959c;
+   background: #f58220;
    padding: 25px 11px;
    color: #fff;
    cursor: pointer;
@@ -2360,7 +2360,7 @@ img {
 }
 .header .FiltroTopo ul li.LiFiltroAvancado {
    border-left: 1px dotted #fff;
-   padding: 10px 0 10px 50px;
+   padding: 2px 0 0 13px;
 }
 .header .FiltroTopo ul li.LiFiltroAvancado a {
    font-family: Gotham-Light;
