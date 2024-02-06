@@ -1,0 +1,8 @@
+{
+   "rewrites": [
+      {
+         "source": "/blog/(.*)",
+         "destination": "https://amc.eng.br/blog/"
+      }
+   ]
+}
