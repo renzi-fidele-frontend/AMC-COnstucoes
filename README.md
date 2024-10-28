@@ -8,6 +8,7 @@ Este é um projeto de site institucional desenvolvido para a AMC Construções. 
 
 - **HTML**: Estruturação do conteúdo do site.
 - **CSS**: Estilização e layout responsivo.
+- **Unsemantic Css**: Sistema de grid fluído para responsividade agilizada.
 - **JavaScript**: Funcionalidades dinâmicas e interações.
 - **jQuery**: Manipulação do DOM e requisições AJAX simplificadas.
 - **Google Maps API**: Integração de mapa interativo com a localização da empresa.
